@@ -150,6 +150,25 @@ Authors keep followers, copy counts and social proof. No multi-approval friction
 | `POST /api/positions/:id/simulate` | Apply a deterministic market move for demoing drift |
 | `GET /api/stats` | Aggregate counters + live price status |
 
+## Deploy
+
+Production is on Vercel, connected to GitHub: **`github.com/bernieboy0001/thesisforge`** → push to `main` and
+production rebuilds automatically (`vercel git connect`). The app is served at
+**[thesisforge-rerunjago.vercel.app](https://thesisforge-rerunjago.vercel.app)** (private repo until submission).
+
+```bash
+git push origin main   # that is the whole deploy
+```
+
+On Vercel the filesystem is read-only, so `lib/store.ts` switches automatically to an Upstash/Vercel KV store: set
+`KV_REST_API_URL` and `KV_REST_API_TOKEN` (injected by the Upstash marketplace integration) or
+`UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`, and the whole db lives in one Redis key. Without them the app
+degrades to per-instance memory (fine for a warm instance, lossy on cold starts — don't demo writes that way).
+Local development is unchanged: file-backed `.data/db.json`.
+
+Two manual steps the first time: provision the KV store in the Vercel dashboard (Storage → Marketplace → Upstash →
+connect to the `thesisforge` project), and set `SOSO_API_KEY` for the production environment.
+
 ## Storage
 
 `.data/db.json`, behind `lib/store.ts` (cached in `globalThis`, mutations serialised through a queue). It survives
