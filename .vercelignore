@@ -1,0 +1,7 @@
+# keep the production bundle clean — no local db, no dev debris
+.data
+scripts
+components.backup-*
+app/*.bak
+*.tsbuildinfo
+.next

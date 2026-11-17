@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* A reference document printed at night: warm ink on graphite-navy paper. */
+  --color-bg: #13151b;
+  --color-surface: #181a21;
+  --color-surface-2: #1e2028;
+  --color-surface-3: #252833;
+  --color-line: rgba(236, 232, 220, 0.09);
+  --color-line-2: rgba(236, 232, 220, 0.17);
+  --color-ink: #ece8dc;
+  --color-muted: #b0ab9c;
+  --color-faint: #8f8b7f;
+
+  /* Brass marks the artifact — the compiled index. Green only means pass/fill. */
+  --color-accent: #cea45d;
+  --color-accent-dim: #2c2617;
+  --color-ok: #6fd89b;
+  --color-ok-dim: #173224;
+  --color-warn: #e8b85e;
+  --color-warn-dim: #332a14;
+  --color-danger: #e0656e;
+  --color-danger-dim: #351b1f;
+  --color-info: #8fb6d9;
+  --color-info-dim: #1a2830;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --radius-card: 10px;
+  --radius-control: 6px;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(206, 164, 93, 0.32);
+  color: #fff;
+}
+
+/* Numbers are measurement: mono, tabular, one format. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* Hairline paper rule — the dossier divider. */
+.hairline {
+  height: 1px;
+  background: var(--color-line);
+}
+
+.hairline-heavy {
+  height: 1px;
+  background: var(--color-line-2);
+}
+
+/* A raised sheet in the dossier stack. */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.55);
+}
+
+.card-2 {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+}
+
+/* The signature chip: the footnote marker every weight carries. */
+.fn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.1rem;
+  padding: 0 0.25rem;
+  border: 1px solid rgba(206, 164, 93, 0.42);
+  border-radius: 3px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1;
+  letter-spacing: 0;
+  vertical-align: 0.08em;
+}
+
+/* Dotted rule used on the order ticket. */
+.ticket-rule {
+  border-top: 1px dashed var(--color-line-2);
+}
+
+/* Scrollbar, quiet. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2d38;
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
+
+textarea,
+input,
+select {
+  outline: none;
+  caret-color: var(--color-accent);
+}
+
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(206, 164, 93, 0.6);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
+
+
