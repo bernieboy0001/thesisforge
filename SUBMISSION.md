@@ -27,6 +27,8 @@
 | SoDEX v1 spot (`/spot/markets/symbols`, `ticker`, orderbook) | Universe routing (only listed spot pairs enter a basket); live pricing; order plan build. |
 | IBM Plex type system · dossier design system | UI: thesis ledger, citation chips, risk "REFUSE/CLEAR" stamps. |
 
+**Brand assets** (submission form thumbnail, repo avatar, slides): `public/brand/` — `thesisforge-icon-1024.png` (square icon), `thesisforge-mark.svg` (transparent mark), `thesisforge-mark-ink.svg` (on light), `thesisforge-lockup-1920.png` (full wordmark card). Regenerate rasters with `node scripts/make-brand-assets.mjs`.
+
 ---
 
 ## 2. Public GitHub repository

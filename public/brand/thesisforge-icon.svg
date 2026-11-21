@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ThesisForge">
+  <rect width="512" height="512" rx="112" fill="#13151B"/>
+  <g transform="translate(256 256) scale(14) translate(-9 -10)">
+    <rect x="1" y="9" width="3.4" height="7" rx="0.8" fill="#B0AB9C"/>
+    <rect x="7.3" y="4" width="3.4" height="12" rx="0.8" fill="#CEA45D"/>
+    <rect x="13.6" y="12" width="3.4" height="4" rx="0.8" fill="#B0AB9C"/>
+  </g>
+</svg>
